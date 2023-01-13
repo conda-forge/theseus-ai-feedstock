@@ -31,11 +31,11 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
-    - pip
-    - setuptools
   host:
     - python
     - pytorch
+    - pip
+    - setuptools
   run:
     - python
     - numpy
