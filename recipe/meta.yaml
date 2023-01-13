@@ -10,7 +10,7 @@ source:
   sha256: 150702236782c76815ad349d2089ef801469a9a8073610da77fe4b89a11ad5d1
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   missing_dso_whitelist:
     # pytorch builds put the libs in the wrong place, but hard to unbundle, see
@@ -41,7 +41,6 @@ requirements:
     - scipy >=1.5.3
     - scikit-sparse >=0.4.5
     - pybind11 >=2.7.1
-    - functorch
     - __cuda >={{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
 
 test:
