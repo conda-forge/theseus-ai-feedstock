@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/theseus-ai-{{ version }}.tar.gz
   sha256: 150702236782c76815ad349d2089ef801469a9a8073610da77fe4b89a11ad5d1
+  patches:
+    - functorch-relax-version.patch
 
 build:
   number: 1
