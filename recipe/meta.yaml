@@ -42,6 +42,7 @@ requirements:
     - scipy >=1.5.3
     - scikit-sparse >=0.4.5
     - pybind11 >=2.7.1
+    - functorch
     - __cuda >={{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
 
 test:
