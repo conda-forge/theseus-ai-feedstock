@@ -49,11 +49,11 @@ test:
   imports:
     - theseus
   commands:
-     - pip check
-   requires:
-     - pip
-     - pytest >=6.2.1
- 
+    - pip check
+  requires:
+    - pip
+    - pytest >=6.2.1
+
 about:
   home: https://github.com/facebookresearch/theseus
   summary: A library for differentiable nonlinear optimization.
