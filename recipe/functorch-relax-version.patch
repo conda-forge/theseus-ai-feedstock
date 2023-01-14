@@ -1,0 +1,10 @@
+diff --git a/requirements/main.txt b/requirements/main.txt
+--- requirements/main.txt
++++ requirements/main.txt
+@@ -3,5 +3,5 @@
+ scikit-sparse>=0.4.5
+ # torch>=1.7.1 will do separate install instructions for now (CUDA dependent)
+ pytest>=6.2.1
+ pybind11>=2.7.1
+-functorch==0.2.1 # > 0.2.1 will install torch1.13, which breaks CUDA 10.2
++# functorch> 0.2.1 will install torch1.13, which breaks CUDA 10.2

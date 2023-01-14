@@ -8,10 +8,15 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/theseus-ai-{{ version }}.tar.gz
   sha256: 150702236782c76815ad349d2089ef801469a9a8073610da77fe4b89a11ad5d1
+  patches:
+    - functorch-relax-version.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
+  skip: true  # [cuda_compiler_version == "10.2"]
+  skip: true  # [cuda_compiler_version == "11.0"]
+  skip: true  # [cuda_compiler_version == "11.1"]
   missing_dso_whitelist:
     # pytorch builds put the libs in the wrong place, but hard to unbundle, see
     # https://github.com/conda-forge/staged-recipes/pull/17082#issuecomment-1189149813
@@ -35,6 +40,7 @@ requirements:
     - python
     - pytorch
     - pip
+    - setuptools
   run:
     - python
     - numpy
