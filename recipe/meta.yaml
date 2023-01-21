@@ -1,5 +1,5 @@
 {% set name = "theseus-ai" %}
-{% set version = "0.1.3" %}
+{% set version = "0.1.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/theseus-ai-{{ version }}.tar.gz
-  sha256: 150702236782c76815ad349d2089ef801469a9a8073610da77fe4b89a11ad5d1
+  sha256: 6fea5f69ccf64e3e83b95198776e897829e4d02588b9145e6761492196efed01
   patches:
     - functorch-relax-version.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   skip: true  # [cuda_compiler_version == "10.2"]
   skip: true  # [cuda_compiler_version == "11.0"]
@@ -20,12 +20,12 @@ build:
   missing_dso_whitelist:
     # pytorch builds put the libs in the wrong place, but hard to unbundle, see
     # https://github.com/conda-forge/staged-recipes/pull/17082#issuecomment-1189149813
-    - "*/libc10{{ SHLIB_EXT }}"
-    - "*/libc10_cuda{{ SHLIB_EXT }}"
-    - "*/libtorch{{ SHLIB_EXT }}"
-    - "*/libtorch_cpu{{ SHLIB_EXT }}"
-    - "*/libtorch_cuda{{ SHLIB_EXT }}"
-    - "*/libtorch_python{{ SHLIB_EXT }}"
+    - '*/libc10{{ SHLIB_EXT }}'
+    - '*/libc10_cuda{{ SHLIB_EXT }}'
+    - '*/libtorch{{ SHLIB_EXT }}'
+    - '*/libtorch_cpu{{ SHLIB_EXT }}'
+    - '*/libtorch_cuda{{ SHLIB_EXT }}'
+    - '*/libtorch_python{{ SHLIB_EXT }}'
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
   # weigh down cpu implementation and give cuda preference
