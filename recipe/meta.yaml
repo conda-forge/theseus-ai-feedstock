@@ -47,7 +47,6 @@ requirements:
     - scipy
     - scikit-sparse
     - pybind11
-    - functorch
     - torchlie
     - torchkin
     - semantic_version
