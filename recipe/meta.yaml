@@ -1,5 +1,5 @@
 {% set name = "theseus-ai" %}
-{% set version = "0.1.4" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,9 +7,9 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/theseus-ai-{{ version }}.tar.gz
-  sha256: 6fea5f69ccf64e3e83b95198776e897829e4d02588b9145e6761492196efed01
+  sha256: 16584fef1a2837aaae917b01739d37ce308808eb9d38210495f0ab1db356bbd0
   patches:
-    - functorch-relax-version.patch
+    - remove-pytorch-version-check.patch
 
 build:
   number: 0
@@ -44,20 +44,19 @@ requirements:
   run:
     - python
     - numpy
-    - scipy >=1.5.3
-    - scikit-sparse >=0.4.5
-    - pybind11 >=2.7.1
-    - functorch
+    - scipy
+    - scikit-sparse
+    - pybind11
+    - torchlie
+    - torchkin
+    - semantic_version
     - __cuda >={{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
 
 test:
   imports:
     - theseus
-  commands:
-    - pip check
   requires:
-    - pip
-    - pytest >=6.2.1
+    - pytest
 
 about:
   home: https://github.com/facebookresearch/theseus
