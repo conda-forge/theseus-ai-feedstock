@@ -9,7 +9,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/theseus-ai-{{ version }}.tar.gz
   sha256: 16584fef1a2837aaae917b01739d37ce308808eb9d38210495f0ab1db356bbd0
   patches:
-    # - functorch-relax-version.patch
+    - remove-pytorch-version-check.patch
 
 build:
   number: 0
