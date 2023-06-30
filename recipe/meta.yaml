@@ -12,7 +12,7 @@ source:
     - remove-pytorch-version-check.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   skip: true  # [cuda_compiler_version == "10.2"]
   skip: true  # [cuda_compiler_version == "11.0"]
