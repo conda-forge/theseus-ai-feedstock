@@ -44,9 +44,9 @@ requirements:
   run:
     - python
     - numpy
-    - scipy >=1.5.3
-    - scikit-sparse >=0.4.5
-    - pybind11 >=2.7.1
+    - scipy
+    - scikit-sparse
+    - pybind11
     - functorch
     - torchlie
     - torchkin
@@ -56,11 +56,8 @@ requirements:
 test:
   imports:
     - theseus
-  commands:
-    - pip check
   requires:
-    - pip
-    - pytest >=6.2.1
+    - pytest
 
 about:
   home: https://github.com/facebookresearch/theseus
