@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/theseus-ai-{{ version }}.tar.gz
   sha256: 03a29f774be912a878111ea5301f456dad84b69bc63a3b1706e4e7d841462b90
-  patches:
-    - remove-pytorch-version-check.patch
 
 build:
   number: 0
@@ -49,7 +47,6 @@ requirements:
     - pybind11
     - torchlie
     - torchkin
-    - semantic_version
     - __cuda >={{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
 
 test:
