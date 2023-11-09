@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/theseus-ai-{{ version }}.tar.gz
   sha256: 03a29f774be912a878111ea5301f456dad84b69bc63a3b1706e4e7d841462b90
-  patches:
-    - do-not-check-pytorch-version.patch
 
 build:
   number: 2
@@ -41,13 +39,14 @@ requirements:
     - pytorch
     - pip
     - setuptools
-    - suitesparse
+    - libcusparse-dev    # [(cuda_compiler_version or "").startswith("12")]
+    - libcublas-dev      # [(cuda_compiler_version or "").startswith("12")]
+    - libcusolver-dev    # [(cuda_compiler_version or "").startswith("12")]
   run:
     - python
     - numpy
     - scipy
     - scikit-sparse
-    - suitesparse
     - pybind11
     - torchlie
     - torchkin
