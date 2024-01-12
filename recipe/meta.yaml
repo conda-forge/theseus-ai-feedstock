@@ -39,6 +39,7 @@ requirements:
     - pytorch
     - pip
     - setuptools
+    - cuda-version =={{ cuda_compiler_version }}  # [cuda_compiler_version not in (undefined, 'None')] 
     - libcusparse-dev    # [(cuda_compiler_version or "").startswith("12")]
     - libcublas-dev      # [(cuda_compiler_version or "").startswith("12")]
     - libcusolver-dev    # [(cuda_compiler_version or "").startswith("12")]
