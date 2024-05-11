@@ -10,7 +10,7 @@ source:
   sha256: 03a29f774be912a878111ea5301f456dad84b69bc63a3b1706e4e7d841462b90
 
 build:
-  number: 4
+  number: 5
   skip: true  # [win]
   skip: true  # [cuda_compiler_version == "10.2"]
   skip: true  # [cuda_compiler_version == "11.0"]
@@ -33,6 +33,7 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
   host:
     - python
