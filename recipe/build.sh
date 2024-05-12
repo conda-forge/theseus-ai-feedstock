@@ -1,3 +1,9 @@
+if [[ -e $CONDA_PREFIX/include/crypt.h ]]; then
+    # fix for python3.8 which depends on system includes for crypt.h
+    # but the bazel sandbox does not add it
+    cp $CONDA_PREFIX/include/crypt.h $PREFIX/include/python*
+fi
+
 if [[ "$cuda_compiler_version" == "None" ]]; then
   export THESEUS_FORCE_CUDA=0
 else
