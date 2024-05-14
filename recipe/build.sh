@@ -1,8 +1,7 @@
-if [[ -e $CONDA_PREFIX/include/crypt.h ]]; then
-    # fix for python3.8 which depends on system includes for crypt.h
-    # but the bazel sandbox does not add it
-    cp $CONDA_PREFIX/include/crypt.h $PREFIX/include/python*
-fi
+# Make the compilers look for headers in the conda include directory
+# I added this so that nvcc finds crypt.h, which is now installed separatedly from python
+# xref: https://github.com/conda-forge/linux-sysroot-feedstock/issues/52
+export CPATH=$PREFIX/include:$CPATH
 
 if [[ "$cuda_compiler_version" == "None" ]]; then
   export THESEUS_FORCE_CUDA=0
