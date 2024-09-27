@@ -1,16 +1,16 @@
 {% set name = "theseus-ai" %}
-{% set version = "0.2.1" %}
+{% set version = "0.2.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/theseus-ai-{{ version }}.tar.gz
-  sha256: 03a29f774be912a878111ea5301f456dad84b69bc63a3b1706e4e7d841462b90
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: f5d88b470526e4ddf439b95b8c1bda648d411db63ad005bc16e385f103a4177d
 
 build:
-  number: 8
+  number: 0
   skip: true  # [win]
   missing_dso_whitelist:
     # pytorch builds put the libs in the wrong place, but hard to unbundle, see
