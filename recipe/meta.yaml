@@ -10,7 +10,7 @@ source:
   sha256: f5d88b470526e4ddf439b95b8c1bda648d411db63ad005bc16e385f103a4177d
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win or cuda_compiler_version == "11.8"]
   missing_dso_whitelist:
     # pytorch builds put the libs in the wrong place, but hard to unbundle, see
