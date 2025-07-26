@@ -1,5 +1,5 @@
 {% set name = "theseus-ai" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: f5d88b470526e4ddf439b95b8c1bda648d411db63ad005bc16e385f103a4177d
+  sha256: 19f22638dd0cecb763d1d6f948974426b5150733cdcae1195434b2f10c59e2b5
 
 build:
-  number: 4
-  skip: true  # [win or cuda_compiler_version == "11.8"]
+  number: 0
+  skip: true  # [win]
   missing_dso_whitelist:
     # pytorch builds put the libs in the wrong place, but hard to unbundle, see
     # https://github.com/conda-forge/staged-recipes/pull/17082#issuecomment-1189149813
@@ -49,7 +49,6 @@ requirements:
     - pybind11
     - torchlie
     - torchkin
-    - __cuda >={{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
 
 test:
   imports:
