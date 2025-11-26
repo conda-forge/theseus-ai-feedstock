@@ -10,7 +10,7 @@ source:
   sha256: 19f22638dd0cecb763d1d6f948974426b5150733cdcae1195434b2f10c59e2b5
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   missing_dso_whitelist:
     # pytorch builds put the libs in the wrong place, but hard to unbundle, see
