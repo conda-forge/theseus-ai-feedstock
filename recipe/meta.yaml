@@ -45,7 +45,7 @@ requirements:
     - python
     - numpy
     - scipy
-    - scikit-sparse
+    - scikit-sparse <0.5.0
     - pybind11
     - torchlie
     - torchkin
