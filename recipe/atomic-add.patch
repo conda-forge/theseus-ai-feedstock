@@ -1,0 +1,24 @@
+diff --git a/theseus/extlib/baspacho_solver_cuda.cu b/theseus/extlib/baspacho_solver_cuda.cu
+index db182b9..99f7344 100644
+--- a/theseus/extlib/baspacho_solver_cuda.cu
++++ b/theseus/extlib/baspacho_solver_cuda.cu
+@@ -8,6 +8,7 @@
+ 
+ #include "baspacho_solver.h"
+ #include "baspacho/baspacho/CudaDefs.h"
++#include <ATen/cuda/Atomic.cuh>
+ #include "utils.h"
+ 
+ void NumericDecomposition::init_factor_data_cuda(int64_t batchSize) {
+diff --git a/theseus/extlib/mat_mult.cu b/theseus/extlib/mat_mult.cu
+index afd0f67..8b37cff 100644
+--- a/theseus/extlib/mat_mult.cu
++++ b/theseus/extlib/mat_mult.cu
+@@ -13,6 +13,7 @@
+ #include <ATen/cuda/Exceptions.h>
+ #include <ATen/cuda/detail/DeviceThreadHandles.h>
+ #include <ATen/cuda/CUDAContext.h>
++#include <ATen/cuda/Atomic.cuh>
+ 
+ #include "utils.h"
+ 
